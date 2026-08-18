@@ -17,6 +17,16 @@ date-released: "2026-08-18"
 license: CC-BY-4.0
 repository-code: "https://github.com/Hardos220/Immortality-dataset"
 url: "https://hardos220.github.io/Immortality-dataset/"
+doi: "10.5281/zenodo.22002817"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22002817"
+    description: >-
+      Постоянный DOI набора: всегда указывает на последнюю версию.
+      Его и следует приводить в ссылках.
+  - type: doi
+    value: "10.5281/zenodo.22002818"
+    description: "DOI версии 1.0"
 keywords:
   - продление жизни
   - бессмертие
