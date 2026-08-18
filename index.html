@@ -53,7 +53,7 @@
   "url": "https://hardos220.github.io/Immortality-dataset/",
   "identifier": "https://doi.org/10.5281/zenodo.22002817",
   "license": "https://creativecommons.org/licenses/by/4.0/",
-  "version": "1.0",
+  "version": "1.0.1",
   "datePublished": "2026-08-18",
   "creator": {
     "@type": "Person",
@@ -2172,17 +2172,17 @@ footer p { max-width: var(--measure); margin: 0; }
 
   <div class="cite">
     <p class="foot-h" data-i18n="ie65c6fb1">Как ссылаться</p>
-    <p style="font-size:14.5px;color:var(--ink-2);margin:0 0 4px" data-i18n="i0feb62fc">Версия 1.0 · 18.08.2026</p>
+    <p style="font-size:14.5px;color:var(--ink-2);margin:0 0 4px" data-i18n="i0feb62fc">Версия 1.0.1 · 18.08.2026</p>
     <pre id="citeApa" data-i18n="i8db4d641">Елисов М. (2026). Кто хочет жить вечно: агрегированная база данных
 об отношении к продлению жизни, бессмертию и здоровому образу жизни
-(версия 1.0) [Набор данных]. Zenodo. CC BY 4.0.
+(версия 1.0.1) [Набор данных]. Zenodo. CC BY 4.0.
 https://doi.org/10.5281/zenodo.22002817</pre>
     <pre id="citeBib">@misc{elisov2026immortality,
   author       = {Elisov, Maksim},
   title        = {Who Wants to Live Forever: an aggregated database of public
                   attitudes to life extension, immortality and healthy lifestyle},
   year         = {2026},
-  version      = {1.0},
+  version      = {1.0.1},
   publisher    = {Zenodo},
   doi          = {10.5281/zenodo.22002817},
   howpublished = {\url{https://doi.org/10.5281/zenodo.22002817}},
@@ -2311,7 +2311,7 @@ https://doi.org/10.5281/zenodo.22002817</pre>
         <li>ORCID: <a href="https://orcid.org/0009-0001-3097-2703" rel="noopener me" target="_blank">0009-0001-3097-2703</a></li>
       </ul>
       <p style="margin-top:14px; font-size:13.5px" data-i18n="i4a738dce">
-        <span data-auto="src">185</span> <span data-auto="srcWord">источников</span> · <span data-auto="fin">2428</span> <span data-auto="finWord">показателей</span> · версия <span data-auto="ver">1.0</span> от <span data-auto="dateLong">18 августа 2026 года</span>.
+        <span data-auto="src">185</span> <span data-auto="srcWord">источников</span> · <span data-auto="fin">2428</span> <span data-auto="finWord">показателей</span> · версия <span data-auto="ver">1.0.1</span> от <span data-auto="dateLong">18 августа 2026 года</span>.
        
       </p>
     </div>
@@ -2511,12 +2511,12 @@ function hotDot(svg, cx, cy, title, value, r) {
    десятичная точка, UTF-8 с BOM: открывается и в Excel, и в pandas/R. */
 // версия для имён выгружаемых файлов: читается из строки версии на странице,
 // чтобы не расходиться с ней при каждом выпуске
-const SITE_VERSION = (document.body.textContent.match(/Версия\s+(\d+\.\d+)/) || [0, "0.0"])[1];
+const SITE_VERSION = (document.body.textContent.match(/Версия\s+(\d+\.\d+(?:\.\d+)?)/) || [0, "0.0"])[1];
 // Дата снимается один раз при загрузке, пока разметка ещё русская: после
 // переключения языка строка читается как «Version 0.103 · 18.08.2026»,
 // и поиск по слову «Версия» вернул бы пустоту.
 const SITE_DATE = (document.body.textContent
-  .match(/Версия\s+\d+\.\d+\s*·\s*([\d.]+)/) || ["", ""])[1];
+  .match(/Версия\s+\d+\.\d+(?:\.\d+)?\s*·\s*([\d.]+)/) || ["", ""])[1];
 const CSV_STORE = {};
 function toCSV(cols, rows) {
   const esc = v => {
@@ -2656,7 +2656,7 @@ const EN_HTML = {
   "i0f24fcb8": "<b>Source:</b> General Social Survey, NORC at the University of Chicago, variable <code>postlife</code>. The question was asked in 29 of 35 possible years, for a total of 45,428 substantive answers.<br> <b>How it was computed.</b> The share choosing “yes” among those giving a substantive answer. The “don’t know” and “no answer” categories were excluded from the file: their share varied markedly from wave to wave, and without this cleaning the years are not comparable. Counting the undecided in as well, the series runs from 69.9 % in 1973 to 71.9 % in 2024 — the same direction.<br> <b>What this shows.</b> Half a century contained secularisation, falling church attendance and the arrival of all of modern biomedicine — and the share believing in an afterlife <b>did not fall but rose</b>, from 76.9 to 82.9 %. Fluctuations between waves reach eight points, so individual adjacent points should not be compared; only the overall level is reliable.<br> <b>Belief has come apart from practice.</b> In 2024, among those attending services weekly <b>92 %</b> believe in an afterlife; among those never attending, <b>74.2 %</b>. A gap of only 18 points: the idea of a posthumous existence holds up even among those with no religious practice at all.<br> <b>Cross-check:</b> for 2018 the GSS gives 81.0 %, while an independent calculation from ISSP microdata for the United States gives 81.3 %. Two different projects, different samples, a discrepancy of three tenths of a point.",
   "i0fd23fd0": "Olshansky et al., 2024. Estimates of the limit of an individual life are a different quantity: 125 and 146–194 years",
   "i0fea9725": "People over 110",
-  "i0feb62fc": "Version <span data-auto=\"ver\">1.0</span> · <span data-auto=\"date\">18.08.2026</span>",
+  "i0feb62fc": "Version <span data-auto=\"ver\">1.0.1</span> · <span data-auto=\"date\">18.08.2026</span>",
   "i1157d423": "<b>The database is skewed towards two countries.</b> Russia and the United States account for <span data-auto=\"twoPct\">57,3</span> % of all country-level indicators. This is a property not of the subject but of source availability: Russian surveys can be read directly, American ones are published openly and in detail. Any conclusion of the form “worldwide people think such and such” must be checked against this skew on these data.",
   "i121e5ab0": "What was taken to be the mean biological limit of the species has become the country average.",
   "i127d5eeb": "<b>Sources:</b> ISSP Religion I–IV Cumulation (GESIS ZA8792 v2.0.0, DOI 10.4232/1.14482) and World Values Survey Time Series 1981–2022 (version 5.0). Both shares were computed from microdata: weighted with the standard weight, base restricted to substantive answers.<br> <b>The column is the mean of the two projects.</b> The value of each separately is given in the table and the tooltip.<br> <b>Why they diverge.</b> ISSP offers four gradations — “definitely yes”, “probably yes”, “probably no”, “definitely no” — and the first two are counted as belief. The World Values Survey asks a binary yes or no. An intermediate “probably yes” on the four-point scale falls into “believe”, whereas on a binary scale some such people choose “no”. Where the measurements are up to four years apart, ISSP is higher in 11 cases of 14, by 4.9 points on average. In individual countries the gap reaches nineteen: Indonesia in 2018 — 93.0 % on ISSP and 73.6 % on the World Values Survey.<br> <b>What this means for reading any cross-national figures.</b> If one and the same country in one and the same year gives 93 and 74 per cent depending on the form of the question, then a divergence of five to ten points between two different surveys proves nothing by itself.<br> <b>Caveat:</b> in half the countries the measurements are ten years apart or more — there a genuine change of view is mixed in with the difference of instruments, and the divergence between projects is wider for that reason rather than because of the wording.",
@@ -2757,7 +2757,7 @@ const EN_HTML = {
   "i493513ba": "First engine: children stopped dying",
   "i4992e56b": "Sources are placed by the “Year” field of the dataset. Where a range is given, the last year was taken. Sources earlier than the twenty-first century are not shown.",
   "i499378cf": "It is not only child mortality",
-  "i4a738dce": "<span data-auto=\"src\">185</span> <span data-auto=\"srcWord\">sources</span> · <span data-auto=\"fin\">2428</span> <span data-auto=\"finWord\">indicators</span> · version <span data-auto=\"ver\">1.0</span> of <span data-auto=\"dateLong\">18 August 2026</span>.",
+  "i4a738dce": "<span data-auto=\"src\">185</span> <span data-auto=\"srcWord\">sources</span> · <span data-auto=\"fin\">2428</span> <span data-auto=\"finWord\">indicators</span> · version <span data-auto=\"ver\">1.0.1</span> of <span data-auto=\"dateLong\">18 August 2026</span>.",
   "i4cb62995": "The 9–77 % spread within a single country comes from comparing different surveys. Nobody has randomised the wording within one sample — that would give a causal estimate of the effect instead of an observational one.",
   "i4d20092c": "China: healthy lifestyle criteria",
   "i4dd49d7c": "What this grid shows",
@@ -2877,7 +2877,7 @@ const EN_HTML = {
   "i8b19df3d": "CSV with a comma separator and a decimal point, UTF-8 with BOM — opens in Excel, in <code>pandas.read_csv()</code> and in <code>read.csv()</code>. The data for an individual chart is behind the “CSV” button next to its table.",
   "i8d8a5837": "Western literature explains refusal by fear of one’s own frailty — and therefore measures “what if health were guaranteed?”. In collectivist cultures a different mechanism operates: the fear of burdening those close to you. An instrument tuned to the first motive measures the wrong thing in the second case and errs systematically on non-Western samples.",
   "i8d9c7183": "Where the data exist — and where they do not",
-  "i8db4d641": "Elisov, M. (2026). Who Wants to Live Forever: an aggregated database of public\nattitudes to life extension, immortality and healthy lifestyle\n(version <span data-auto=\"ver\">1.0</span>) [Data set]. Zenodo. CC BY 4.0.\nhttps://doi.org/10.5281/zenodo.22002817",
+  "i8db4d641": "Elisov, M. (2026). Who Wants to Live Forever: an aggregated database of public\nattitudes to life extension, immortality and healthy lifestyle\n(version <span data-auto=\"ver\">1.0.1</span>) [Data set]. Zenodo. CC BY 4.0.\nhttps://doi.org/10.5281/zenodo.22002817",
   "i8f4de517": "mean life expectancy has more than doubled",
   "i8f6f4d9b": "the ceiling declared in 1980",
   "i901c3de7": "On the direct question “do you want to live forever” Russia sits at the bottom of the world distribution: 18 % yes against 62 % no, and the share refusing has not moved since 2013. But as soon as the question becomes technologically specific, the picture changes.",

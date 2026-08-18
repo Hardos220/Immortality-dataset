@@ -12,7 +12,7 @@ authors:
     given-names: Максим
     email: maksimelisov2003@gmail.com
     orcid: "https://orcid.org/0009-0001-3097-2703"
-version: "1.0"
+version: "1.0.1"
 date-released: "2026-08-18"
 license: CC-BY-4.0
 repository-code: "https://github.com/Hardos220/Immortality-dataset"
@@ -23,10 +23,8 @@ identifiers:
     value: "10.5281/zenodo.22002817"
     description: >-
       Постоянный DOI набора: всегда указывает на последнюю версию.
-      Его и следует приводить в ссылках.
-  - type: doi
-    value: "10.5281/zenodo.22002818"
-    description: "DOI версии 1.0"
+      Его и следует приводить в ссылках. У каждой отдельной версии есть
+      собственный DOI, он виден на странице записи в Zenodo.
 keywords:
   - продление жизни
   - бессмертие
