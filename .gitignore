@@ -1,0 +1,22 @@
+# служебные файлы сборки
+_artifact.html
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ОС
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# редакторы
+.vscode/
+.idea/
+*.swp
+
+# временные выгрузки Excel
+~$*.xlsx
+~$*.csv

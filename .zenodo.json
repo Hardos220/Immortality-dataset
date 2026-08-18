@@ -1,0 +1,40 @@
+{
+  "upload_type": "dataset",
+  "title": "Кто хочет жить вечно: агрегированная база данных об отношении к продлению жизни, бессмертию и здоровому образу жизни / Who Wants to Live Forever: an aggregated database of public attitudes to life extension, immortality and healthy lifestyle",
+  "version": "1.0",
+  "publication_date": "2026-08-18",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "language": "rus",
+  "creators": [
+    {
+      "name": "Elisov, Maksim",
+      "orcid": "0009-0001-3097-2703"
+    }
+  ],
+  "keywords": [
+    "продление жизни",
+    "бессмертие",
+    "долголетие",
+    "здоровый образ жизни",
+    "общественное мнение",
+    "демография",
+    "life extension",
+    "longevity",
+    "immortality",
+    "public attitudes",
+    "healthy lifestyle",
+    "survey data",
+    "life expectancy",
+    "cryonics"
+  ],
+  "description": "<p><strong>Агрегированная база данных об отношении людей к продлению жизни, бессмертию, долголетию и здоровому образу жизни.</strong> 185 источников, 2 428 числовых показателей, замеры по 109 странам и межстрановые исследования охватом до 183 стран. Замеры установок относятся к 1973&ndash;2026 годам, демографические ряды начинаются с 1751 года.</p><p>Общественное мнение о продлении жизни измеряют десятилетиями, но результаты несопоставимы между собой: один и тот же вопрос, заданный по-разному, даёт в США от 19 % до 77 % согласия. Гармонизированного международного инструмента не существует. Этот набор сводит разрозненные замеры в одну прослеживаемую таблицу и показывает, где данные сопоставимы, а где нет. Это <em>агрегатор, а не первоисточник</em>: каждая строка ведёт к исходной публикации, у каждого источника указан тир прослеживаемости T1&ndash;T3.</p><p><strong>Ключевой результат.</strong> Доля согласных падает всемеро по мере того, как ответ становится дороже: с 69,7 % у ценностного суждения &laquo;долго жить хорошо&raquo; до 9,7 % у измеренного поведения (здоровый образ жизни по пяти критериям Росстата). Та же закономерность воспроизводится внутри одной страны и внутри одной анкеты.</p><p>К данным приложена самодостаточная интерактивная витрина: 37 авторских графиков, 10 разделов, переключение русского и английского языков, работает офлайн без внешних зависимостей.</p><hr><p><strong>An aggregated database of public attitudes to life extension, immortality, longevity and healthy living.</strong> 185 sources, 2,428 numeric indicators, measurements for 109 countries and cross-national studies covering up to 183 countries. Attitude measurements span 1973&ndash;2026; demographic series begin in 1751.</p><p>Public opinion on life extension has been measured for decades, but the results are not comparable with one another: the same question asked in different ways yields between 19 % and 77 % agreement in the United States. No harmonised international instrument exists. This dataset brings scattered measurements into a single traceable table and shows where the data are comparable and where they are not. It is an <em>aggregator, not a primary source</em>: every row leads back to its original publication, and every source carries a traceability tier T1&ndash;T3.</p><p><strong>Key finding.</strong> The share who agree falls sevenfold as the answer grows more costly: from 69.7 % for the value judgement &ldquo;living long is a good thing&rdquo; to 9.7 % for measured behaviour (a healthy lifestyle on the five Rosstat criteria). The same pattern reproduces within a single country and within a single questionnaire.</p><p>The data come with a self-contained interactive showcase: 37 original charts, 10 sections, a Russian/English language switch, working offline with no external dependencies.</p>",
+  "notes": "Лицензия распространяется на сбор, систематизацию, расчёты, тексты и визуализацию. Права на первичные данные принадлежат их правообладателям (ВЦИОМ, Левада-Центр, Росстат, Pew Research Center, Ipsos, ООН, ВОЗ, Eurostat и другие организации, перечисленные в data/sources.csv). При ссылке на конкретный показатель указывайте также его первичный источник. — The licence covers the collection, systematisation, calculations, texts and visualisation. Rights in the primary data belong to their holders, listed in data/sources.csv; when citing a specific figure, cite its primary source as well.",
+  "related_identifiers": [
+    {
+      "identifier": "https://creativecommons.org/licenses/by/4.0/",
+      "relation": "isDocumentedBy",
+      "resource_type": "other"
+    }
+  ]
+}
