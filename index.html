@@ -6842,7 +6842,7 @@ function applyLang(lang) {
     ? "Who Wants to Live Forever — the data"
     : "Кто хочет жить вечно — данные";
   // счётчики берутся из данных, а не переписываются руками в двух языках
-  const nS = SRC.length, nF = N_FIN, nC = COV.length;
+  const nS = N_SRC, nF = N_FIN, nC = COV.length;
   const META = LANG === "en" ? {
     description: "An open database of attitudes to life extension, immortality and "
       + "healthy living: " + nS + " sources, " + nF + " indicators, "
@@ -6937,6 +6937,11 @@ srcTable();
    показателей живёт в findings.csv, на странице его нет, и её переписывает
    scripts_build/sync_docs.py вместе с реестром. */
 const N_FIN = 2428;
+// Источников в наборе. Отдельно от SRC.length: в списке реестра не
+// показывается запись о собственных расчётах составителя, поэтому SRC на
+// одну строку короче набора. Счётчик в шапке описывает набор, а не список,
+// и должен совпадать с README, CITATION.cff и метаданными страницы.
+const N_SRC = 185;
 // Стран, у которых есть собственное национальное исследование по теме,
 // а не только страновое значение внутри межстрановой работы. Считается
 // сверкой source_id каждой страны с полем coverage в sources.csv.
@@ -7005,9 +7010,9 @@ function autoNumbers() {
     : plural(n, "страна", "страны", "стран"));
 
   const V = {
-    src: SRC.length,
-    srcWord: en ? (SRC.length === 1 ? "source" : "sources")
-      : plural(SRC.length, "источник", "источника", "источников"),
+    src: N_SRC,
+    srcWord: en ? (N_SRC === 1 ? "source" : "sources")
+      : plural(N_SRC, "источник", "источника", "источников"),
     fin: N_FIN,
     finWord: en ? (N_FIN === 1 ? "indicator" : "indicators")
       : plural(N_FIN, "показатель", "показателя", "показателей"),
