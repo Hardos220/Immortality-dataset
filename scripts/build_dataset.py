@@ -33,12 +33,13 @@ OUT = REPO / "data"
 # а не наоборот. Без этой проверки запуск из набора падал с трассировкой
 # и выглядел как сломанный скрипт.
 if not SRC_FINDINGS.exists():
-    raise SystemExit(
+    print(
         "Этот скрипт собирает публикуемый набор из рабочих файлов проекта.\n"
         "Не найден %s.\n\n"
         "В опубликованном наборе рабочих файлов нет — скрипт включён в него\n"
         "как описание того, как получены CSV. Проверить сам набор можно\n"
         "командой:  python scripts/validate.py" % SRC_FINDINGS)
+    raise SystemExit(0)
 
 OUT.mkdir(parents=True, exist_ok=True)
 
@@ -190,6 +191,7 @@ COUNTRY = {
     "сообщество LessWrong":         ("", "LessWrong community (non-probability)", "community"),
     # мировые агрегаты и исторические государства
     "Мир":                          ("WLD", "World", "global"),
+    "Бельгия":                      ("BEL", "Belgium", "national"),
     "мета-анализ (10 исследований)": ("", "Meta-analysis (10 studies)", "multi"),
     # исторический замер: в сетку покрытия по нынешним странам не входит
     "СССР":                         ("SUN", "Soviet Union (historical)", "region"),
@@ -208,6 +210,22 @@ TOPIC_RU = {
 }
 
 
+def en_note(note):
+    """Уточнение охвата в скобках по-английски: «25 стран» → «25 countries»."""
+    n = note.strip()
+    m = re.fullmatch(r"(\d+\+?)\s+(?:стран|страны|странa|страна)", n)
+    if m:
+        return "%s countries" % m.group(1)
+    m = re.fullmatch(r"(\d+)\s+рынков", n)
+    if m:
+        return "%s markets" % m.group(1)
+    return {
+        "крион. сообщество": "cryonics community",
+        "философы": "philosophers",
+        "рекорд": "record",
+    }.get(n, n)
+
+
 def norm_country(raw):
     raw = (raw or "").strip()
     if raw in COUNTRY:
@@ -217,7 +235,10 @@ def norm_country(raw):
         m = re.search(r"\((.+)\)", raw)
         note = m.group(1) if m else ""
         scope = "community" if "крион" in note else "global"
-        return "WLD", "World" + (f" ({note})" if note else ""), scope, raw
+        # Уточнение в скобках прежде переносилось как есть, и в колонку
+        # country_en публикуемого набора попадала кириллица: «World
+        # (25 стран)». Колонка объявлена английской, читать её так нельзя.
+        return "WLD", "World" + (f" ({en_note(note)})" if note else ""), scope, raw
     return "", raw, "other", raw
 
 
@@ -348,6 +369,11 @@ for f in findings:
     })
 
 
+# Колонки с дробными числами. Разделитель в них задаётся форматом файла,
+# а не тем, как значение было набрано в рабочей таблице.
+NUMERIC_COLS = ("value_min", "value_max", "ci_low", "ci_high", "sd")
+
+
 def write_csv(path, cols, data, delimiter=",", decimal="."):
     with path.open("w", encoding="utf-8-sig", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=cols, delimiter=delimiter,
@@ -355,10 +381,18 @@ def write_csv(path, cols, data, delimiter=",", decimal="."):
         w.writeheader()
         for r in data:
             out = dict(r)
-            if decimal == ",":
-                for k in ("value_min", "value_max"):
-                    if out.get(k):
-                        out[k] = str(out[k]).replace(".", ",")
+            # Числовые колонки приводятся к формату файла целиком.
+            # Прежде границы интервала и стандартное отклонение просто
+            # копировались из рабочего файла с десятичной запятой — и в
+            # «международном» findings.csv оказывались строки вида «68,6».
+            # pandas читал ci_low, ci_high и sd как object, а не float,
+            # и любое среднее по ним падало.
+            for k in NUMERIC_COLS:
+                v = out.get(k)
+                if not v:
+                    continue
+                v = str(v).replace(",", ".")
+                out[k] = v.replace(".", ",") if decimal == "," else v
             w.writerow(out)
 
 
@@ -396,6 +430,13 @@ for iso in sorted(grid, key=lambda i: (-sum(grid[i].get(t, 0) for t in TOPICS), 
            "total": sum(grid[iso].get(t, 0) for t in TOPICS)}
     for t in TOPICS:
         rec[t] = grid[iso].get(t, 0)
+    # Страна без единого замера по шести темам в матрицу не попадает.
+    # Так в неё однажды вошла Бельгия: у неё есть ровно одна строка, и та
+    # со служебной темой M (длительность исследования). Строка в наборе
+    # нужна, но страной с данными Бельгия от этого не становится —
+    # а счётчик стран из-за неё вырос со 109 до 110.
+    if rec["total"] == 0:
+        continue
     cov_rows.append(rec)
 write_csv(OUT / "coverage.csv", ["country_iso3", "country_en", "total"] + TOPICS, cov_rows)
 

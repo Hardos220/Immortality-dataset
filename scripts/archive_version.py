@@ -23,11 +23,11 @@ MANIFEST = ARCH / "MANIFEST.md"
 
 
 def read_version(text):
-    m = re.search(r"Версия\s+(\d+\.\d+)\s+·\s+(\d{2}\.\d{2}\.\d{4})", text)
+    m = re.search(r"Версия\s+(\d+\.\d+(?:\.\d+)?)\s+·\s+(\d{2}\.\d{2}\.\d{4})", text)
     if m:
         d, mo, y = m.group(2).split(".")
         return m.group(1), "%s-%s-%s" % (y, mo, d)
-    m = re.search(r"версия\s+(\d+\.\d+)", text)
+    m = re.search(r"версия\s+(\d+\.\d+(?:\.\d+)?)", text)
     return (m.group(1) if m else "0.0"), date.today().isoformat()
 
 
@@ -45,11 +45,12 @@ def main():
     # Копия скрипта едет вместе с публикуемым набором как описание процедуры.
     # Архив версий ведётся в рабочем репозитории, в набор он не входит.
     if not SRC.exists():
-        raise SystemExit(
+        print(
             "Этот скрипт архивирует опубликованную версию витрины и ждёт\n"
             "site/index.html. Не найден %s.\n\n"
             "Архив версий ведётся в рабочем репозитории проекта; в набор\n"
             "скрипт включён как описание процедуры." % SRC)
+        raise SystemExit(0)
     ARCH.mkdir(parents=True, exist_ok=True)
 
     text = io.open(SRC, encoding="utf-8").read()

@@ -1,19 +1,22 @@
 cff-version: 1.2.0
 title: >-
-  Кто хочет жить вечно: агрегированная база данных об отношении
-  к продлению жизни, бессмертию и здоровому образу жизни
+  Who Wants to Live Forever: an aggregated database of public attitudes
+  to life extension, immortality and healthy lifestyle
 message: >-
-  Если вы используете эти данные, пожалуйста, сошлитесь на них.
+  If you use these data, please cite them. When citing a specific figure,
+  cite its primary source from sources.csv as well — this database
+  aggregates measurements made by others.
+  — Если вы используете эти данные, пожалуйста, сошлитесь на них.
   При ссылке на конкретный показатель указывайте также первичный
-  источник из sources.csv — эта база агрегирует чужие измерения.
+  источник из sources.csv: эта база агрегирует чужие измерения.
 type: dataset
 authors:
   - family-names: Елисов
     given-names: Максим
     email: maksimelisov2003@gmail.com
     orcid: "https://orcid.org/0009-0001-3097-2703"
-version: "1.0.1"
-date-released: "2026-08-18"
+version: "1.1"
+date-released: "2026-08-19"
 license: CC-BY-4.0
 repository-code: "https://github.com/Hardos220/Immortality-dataset"
 url: "https://hardos220.github.io/Immortality-dataset/"
@@ -38,13 +41,12 @@ keywords:
   - healthy lifestyle
   - survey data
 abstract: >-
-  Агрегированная база из 185 источников и 2 428 числовых показателей об отношении
-  населения к радикальному продлению жизни, бессмертию, долгожительству
-  и здоровому образу жизни. Охватывает замеры по 109 странам и межстрановые
-  исследования объёмом до 183 стран; замеры установок относятся к 1973–2026
-  годам, демографические ряды начинаются с 1751 года.
-  Ключевой результат: доля согласных падает всемеро по мере того, как ответ
-  становится дороже, — с 69,7 % у ценностного суждения «долго жить хорошо»
-  до 9,7 % у измеренного поведения. К данным приложена витрина
-  с 37 графиками и матрицей покрытия, показывающей географические
-  и тематические пробелы.
+  An aggregated database of 185 sources and 2404 numeric indicators on public
+  attitudes to radical life extension, immortality, longevity and healthy
+  living. It covers measurements for 109 countries and cross-national studies
+  of up to 183 countries; attitude measurements span 1973–2026, while
+  demographic series begin in 1751.
+  Key finding: the share who agree falls sevenfold as the answer grows more
+  costly — from 69.7 % for the value judgement “living long is a good thing”
+  to 9.7 % for measured behaviour. The data come with a showcase of 37 charts
+  and a coverage matrix that makes the geographic and thematic blanks visible.

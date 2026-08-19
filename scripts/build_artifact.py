@@ -24,12 +24,13 @@ OUT = Path(__file__).parent / "_artifact.html"
 # рядом с ней витрины нет, она лежит на уровень выше. Без этой проверки
 # запуск из набора падал с трассировкой.
 if not SRC.exists():
-    raise SystemExit(
+    print(
         "Этот скрипт готовит витрину к публикации через Artifact и ждёт\n"
         "index.html рядом с собой. Не найден %s.\n\n"
         "В опубликованном наборе витрина лежит в корне, а скрипт включён\n"
         "как описание процедуры. Запускать его нужно из рабочего\n"
         "репозитория проекта: python site/build_artifact.py" % SRC)
+    raise SystemExit(0)
 
 html = SRC.read_text(encoding="utf-8")
 

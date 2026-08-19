@@ -241,21 +241,33 @@ for r in findings:
 # источник N062, но имена wellness_economy_proj и wellness_economy_size.
 # Совпадение источника, года, страны, подгруппы, значения и единицы при
 # разных именах — почти всегда дубль, и его надо разбирать руками.
+# Колонка называется по-разному в рабочей таблице и в публикуемой:
+# там `value`, здесь `value_min` и `value_max`. Проверку писали по рабочей
+# схеме, и на опубликованном наборе `r.get("value")` возвращала пустоту
+# на КАЖДОЙ строке — блок не смотрел ни одной из 2428 и не мог ничего
+# найти с самого своего появления. Берём то имя, которое есть в файле.
 by_value = defaultdict(list)
 for r in findings:
-    v = (r.get("value") or "").strip()
+    v = (r.get("value_min") or r.get("value") or "").strip()
     if not v:
         continue
     by_value[(r["source_id"], r["country_raw"], r.get("year_start", ""),
               r.get("subgroup", ""), v, r.get("unit", ""))].append(r)
+# Совпадение — повод разобрать руками, а не приговор: одна и та же доля
+# может законно стоять у двух разных величин. Так у N015 «хотят жить
+# вечно» и «против» дают по 37,4 % (не определились 25,2, в сумме 100).
+# Поэтому это предупреждение со списком, а не ошибка: снимать строки
+# набора можно только после разбора каждой пары.
+dup_groups = []
 for k, rows in by_value.items():
     names = {r["indicator"] for r in rows}
     if len(rows) > 1 and len(names) > 1:
-        errors.append(
-            "%s: одна величина под разными именами показателя (%s), "
-            "источник %s, %s год, значение %s"
-            % (" и ".join(r["finding_id"] for r in rows),
-               ", ".join(sorted(names)), k[0], k[2], k[4]))
+        dup_groups.append((k, rows, names))
+if dup_groups:
+    warnings.append(
+        "одна величина под разными именами показателя (%d групп, %d строк) — "
+        "требуют разбора, список в docs/duplicates_review.md"
+        % (len(dup_groups), sum(len(r) for _, r, _ in dup_groups)))
 
 # 9ж. признак прогноза согласован с годом — проверка ОДНОСТОРОННЯЯ.
 #
@@ -414,8 +426,21 @@ print("проверка величин:")
 for code in ("primary", "corroborated", "from_primary", "secondary", "pending", "failed"):
     if ver_counts.get(code):
         print(f"   {code:14} {ver_counts[code]:5}  — {vocab.VERIFICATION[code]}")
+# Пустое значение разрешено словарём, и раньше такие строки не попадали
+# ни в одну графу: итог считался как secondary + pending и выглядел полным,
+# описывая на деле не весь набор. Показываем их отдельной строкой.
+unmarked = ver_counts.get("", 0)
+if unmarked:
+    print(f"   {'не размечено':14} {unmarked:5}  — состояние проверки не проставлено")
 unchecked = ver_counts.get("secondary", 0) + ver_counts.get("pending", 0)
-print(f"   {'ИТОГО ждут сверки':14} {unchecked:5}")
+print(f"   {'ИТОГО ждут сверки':14} {unchecked:5}"
+      + (f" (плюс {unmarked} неразмеченных)" if unmarked else ""))
+covered = sum(ver_counts.values()) - unmarked
+print(f"   {'охвачено сводкой':14} {covered:5} из {len(findings)}")
+if unmarked:
+    warnings.append(
+        f"состояние проверки не проставлено у {unmarked} строк — "
+        f"они не попадают ни в одну графу сводки")
 
 if warnings:
     print(f"\nПредупреждения ({len(warnings)}):")

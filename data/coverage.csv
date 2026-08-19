@@ -1,16 +1,16 @@
 ﻿country_iso3,country_en,total,D1,D2,D3,D4,D5,E
-RUS,Russia,535,183,35,103,70,142,2
-USA,United States,502,63,101,56,133,117,32
-JPN,Japan,157,13,8,8,112,10,6
-GBR,United Kingdom,65,46,0,1,16,1,1
+RUS,Russia,528,181,35,103,70,137,2
+USA,United States,498,63,97,56,133,117,32
+JPN,Japan,154,13,5,8,112,10,6
+GBR,United Kingdom,63,44,0,1,16,1,1
 CHN,China,61,13,1,12,6,29,0
-POL,Poland,53,10,28,4,0,11,0
+POL,Poland,51,9,28,4,0,10,0
 DEU,Germany,29,15,0,0,1,0,13
 BRA,Brazil,28,3,10,4,2,9,0
 KOR,South Korea,27,3,1,17,5,1,0
-SAU,Saudi Arabia,19,1,8,0,1,9,0
 NLD,Netherlands,18,8,0,5,4,0,1
 CHE,Switzerland,17,5,0,0,2,2,8
+SAU,Saudi Arabia,17,1,6,0,1,9,0
 IDN,Indonesia,16,6,1,3,2,4,0
 ARE,United Arab Emirates,15,0,0,0,1,14,0
 CZE,Czechia,14,8,0,1,2,3,0
