@@ -28,7 +28,7 @@ following reasonable manner of attribution:
 ```
 Elisov, M. (2026). Who Wants to Live Forever: an aggregated database of public
 attitudes to life extension, immortality and healthy lifestyle
-(version 1.1) [Data set]. Zenodo. CC BY 4.0.
+(version 1.1.1) [Data set]. Zenodo. CC BY 4.0.
 https://doi.org/10.5281/zenodo.22002817
 ```
 
@@ -125,11 +125,14 @@ International (CC BY 4.0)**, полный юридический текст ко
 разумный способ указания авторства:
 
 ```
-Елисов М. (2026). Who Wants to Live Forever: an aggregated database of public
+Elisov, M. (2026). Who Wants to Live Forever: an aggregated database of public
 attitudes to life extension, immortality and healthy lifestyle
-(версия 1.1) [Набор данных]. Zenodo. CC BY 4.0.
+(version 1.1.1) [Data set]. Zenodo. CC BY 4.0.
 https://doi.org/10.5281/zenodo.22002817
 ```
+
+Форма ссылки приводится по-английски: официальное название набора английское,
+а название работы при цитировании не переводят.
 
 Указание авторства в ином разумном виде, соответствующем носителю и способу
 использования, также допускается — как прямо предусмотрено разделом 3(a)(2).

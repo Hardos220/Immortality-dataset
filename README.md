@@ -176,26 +176,29 @@ df[df.source_tier == "T1"]
 ## Как ссылаться
 
 ```
-Елисов М. (2026). Кто хочет жить вечно: агрегированная база данных
-об отношении к продлению жизни, бессмертию и здоровому образу жизни
-(версия 1.1) [Набор данных]. Zenodo. CC BY 4.0.
+Elisov, M. (2026). Who Wants to Live Forever: an aggregated database of public
+attitudes to life extension, immortality and healthy lifestyle
+(version 1.1.1) [Data set]. Zenodo. CC BY 4.0.
 https://doi.org/10.5281/zenodo.22002817
 ```
 
 ```bibtex
 @dataset{elisov2026immortality,
-  author    = {Елисов, Максим},
+  author    = {Elisov, Maksim},
   orcid     = {0009-0001-3097-2703},
-  title     = {Кто хочет жить вечно: агрегированная база данных об отношении
-               к продлению жизни, бессмертию и здоровому образу жизни},
+  title     = {Who Wants to Live Forever: an aggregated database of public
+               attitudes to life extension, immortality and healthy lifestyle},
   year      = {2026},
-  version   = {1.1},
+  version   = {1.1.1},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.22002817},
   url       = {https://doi.org/10.5281/zenodo.22002817},
   license   = {CC BY 4.0}
 }
 ```
+
+Ссылка приводится по-английски и в русском README: официальное название
+набора английское, а название работы при цитировании не переводят.
 
 DOI `10.5281/zenodo.22002817` постоянный: он всегда ведёт на последнюю
 версию набора, и в ссылках указывают именно его. У каждой отдельной версии
