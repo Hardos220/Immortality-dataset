@@ -178,7 +178,7 @@ df[df.source_tier == "T1"]
 ```
 Elisov, M. (2026). Who Wants to Live Forever: an aggregated database of public
 attitudes to life extension, immortality and healthy lifestyle
-(version 1.1.2) [Data set]. Zenodo. CC BY 4.0.
+(version 1.1.3) [Data set]. Zenodo. CC BY 4.0.
 https://doi.org/10.5281/zenodo.22002817
 ```
 
@@ -189,7 +189,7 @@ https://doi.org/10.5281/zenodo.22002817
   title     = {Who Wants to Live Forever: an aggregated database of public
                attitudes to life extension, immortality and healthy lifestyle},
   year      = {2026},
-  version   = {1.1.2},
+  version   = {1.1.3},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.22002817},
   url       = {https://doi.org/10.5281/zenodo.22002817},

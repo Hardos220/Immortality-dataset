@@ -53,8 +53,8 @@
   "url": "https://hardos220.github.io/Immortality-dataset/",
   "identifier": "https://doi.org/10.5281/zenodo.22002817",
   "license": "https://creativecommons.org/licenses/by/4.0/",
-  "version": "1.1.2",
-  "datePublished": "2026-08-19",
+  "version": "1.1.3",
+  "datePublished": "2026-08-28",
   "creator": {
     "@type": "Person",
     "name": "Максим Елисов",
@@ -245,6 +245,11 @@ h2 { font: 700 clamp(23px, 3vw, 30px)/1.2 var(--sans); letter-spacing: -.022em; 
    графика. Такое место на странице одно, но правило общее. */
 .sec > h2 + figure.chart { margin-top: 26px; }
 .sec > figure.chart + h2 { margin-top: 52px; }
+/* График сразу за блоком карточек внутри .sec оставался без отступа:
+   правило .wrap > * + * смотрит только на прямых детей .wrap, а здесь
+   оба элемента лежат внутри .sec и прижимались друг к другу вплотную.
+   Зазор тот же, что у такой же пары на уровне .wrap. */
+.sec > .tiles + figure.chart { margin-top: 28px; }
 /* Вступление к вкладке «Главная»: единственное место, где страница говорит
    от первого лица. Набрано крупнее основного текста и отбито снизу линейкой. */
 .sec.intro { padding-bottom: 30px; border-bottom: 1px solid var(--rule); }
@@ -602,7 +607,7 @@ footer p { max-width: var(--measure); margin: 0; }
         <span><b data-auto="src">185</b> <span data-auto="srcWord">источников</span></span>
         <span><b data-auto="fin">2404</b> <span data-auto="finWord">показателя</span></span>
         <span>охват <b data-auto="span">1973–2026</b></span>
-        <span>обновлено <b data-auto="date">19.08.2026</b></span>
+        <span>обновлено <b data-auto="date">28.08.2026</b></span>
       </div>
     </div>
   </div>
@@ -743,13 +748,14 @@ footer p { max-width: var(--measure); margin: 0; }
   <figure class="chart">
     <div class="chart-head">
       <p class="chart-title" data-i18n="iee0aa806">Сила формулировки: форма и контекст вопроса меняют всё</p>
-      <p class="chart-sub" data-i18n="i6dda02a2">Все цифры — про США. Доля согласных, %. Цвет кодирует порог, о котором спрашивали. Серый диапазон — 95 % доверительный интервал в предположении простой случайной выборки.</p>
+      <p class="chart-sub" data-i18n="i6dda02a2">Доля согласных, %. Опросы в США.</p>
     </div>
     <div class="legend" id="c2l"></div>
     <div class="chart-body"><div id="c2"></div></div>
     <div class="chart-foot"><details class="tv"><summary data-i18n="if2729fd7">Таблица</summary><div class="tv-body" id="c2t"></div></details></div>
     <figcaption><details class="capd"><summary data-i18n="ic272ce96">Подробнее о графике</summary><div class="capd-body" data-i18n="i7a5a3418">
       <b>Источники:</b> YouGov 2018 (N не опубликован) · CBS News/YouGov 2021 (N = 1 650) · Barnett &amp; Helphrey 2021 (N = 911) · Pew Research Center 2013 (N = 2 012) и 2025 (N = 8 750) · Corebridge/Greenwald 2025 (N = 4 400) · Stanford Center on Longevity, TIME и Hart Research 2016 (N = 2 330).<br>
+      <b>Как читать график.</b> Цвет кодирует порог, о котором спрашивали. Серый диапазон — 95 % доверительный интервал в предположении простой случайной выборки.<br>
       <b>Условие о здоровье.</b> В опросе Stanford, TIME и Hart вопрос о сотне лет задавался с оговоркой о сохранении здоровья. Дословный текст анкеты и топлайн этого опроса не опубликованы, условие известно по описаниям организаторов.<br>
       <b>Два разных порога.</b> Синие замеры спрашивают про вечную жизнь, зелёные — про сотню лет. Внутри порога «вечно» разброс — от 19 до 33 %, внутри порога «до 100 лет» — от 9 до 77 %. То есть почти весь размах создаётся внутри одного семейства, а не переходом между ними. Нижний край семейства «сотни» — замер Pew 2013 года, и он отвечает на более жёсткий вопрос: доля назвавших возраст <b>больше</b> ста лет, тогда как остальные включают саму сотню. Соседний график показывает, что 9 % совместимы с 7–30 % у Pew 2025 года.<br>
       <b>Чистое сравнение форматов:</b> Pew и Corebridge, 2025 год, одна страна, один порог — 30 % против 49 %. У Pew возраст называют сами в открытом поле, у Corebridge отвечают «да» или «нет» на прямой вопрос о сотне лет. Разница в 19 пунктов возникает без разницы в годах, выборках и конструкте.
@@ -918,7 +924,7 @@ footer p { max-width: var(--measure); margin: 0; }
   <figure class="chart">
     <div class="chart-head">
       <p class="chart-title" data-i18n="ic5790260">Сколько лет хотели бы прожить — и сколько прожили</p>
-      <p class="chart-sub" data-i18n="i6cbc6535">Японская когорта Ohsaki: 39 902 человека ответили в 1990 году, наблюдение шло 25 лет. Справа — во что вылился ответ.</p>
+      <p class="chart-sub" data-i18n="i6cbc6535">Доля ответивших, %. Правая шкала — смертность по итогам наблюдения.</p>
     </div>
     <div class="chart-body"><div id="oH"></div></div>
     <div class="chart-foot"><details class="tv"><summary data-i18n="if2729fd7">Таблица</summary><div class="tv-body" id="oHt"></div></details></div>
@@ -961,7 +967,7 @@ footer p { max-width: var(--measure); margin: 0; }
   <figure class="chart">
     <div class="chart-head">
       <p class="chart-title" data-i18n="if5cd1292">До какого возраста вы хотели бы дожить?</p>
-      <p class="chart-sub" data-i18n="i87cb3cfa">Распределение ответов на открытый вопрос, два замера в США Pew Research Center. Разметки различаются сдвигом ровно на год, поэтому категории сопоставляются попарно.</p>
+      <p class="chart-sub" data-i18n="i87cb3cfa">Открытый вопрос, два замера в США. Разметки различаются сдвигом на год, поэтому категории сопоставляются попарно.</p>
     </div>
     <div class="legend" id="cPl"></div>
     <div class="chart-body"><div id="cP"></div></div>
@@ -1271,7 +1277,7 @@ footer p { max-width: var(--measure); margin: 0; }
   <figure class="chart">
     <div class="chart-head">
       <p class="chart-title" data-i18n="i50a4b4bc">Вера в загробную жизнь</p>
-      <p class="chart-sub" data-i18n="i74edd372">Пустая точка — первый замер, залитая — последний. Стрелка показывает направление.</p>
+      <p class="chart-sub" data-i18n="i74edd372">Доля верящих, %. Стрелка показывает динамику.</p>
     </div>
     <div class="legend" id="tAl"></div>
     <div class="chart-body"><div id="tA"></div></div>
@@ -1417,7 +1423,7 @@ footer p { max-width: var(--measure); margin: 0; }
   <figure class="chart">
     <div class="chart-head">
       <p class="chart-title" data-i18n="ice68029c">Чем «научнее» средство, тем меньше желающих</p>
-      <p class="chart-sub" data-i18n="ia9860bf1">Готовность применять средства продления жизни. Все пять — одна выборка и один опрос, поэтому сравнимы между собой напрямую.</p>
+      <p class="chart-sub" data-i18n="ia9860bf1">Готовность применять средства продления жизни.</p>
     </div>
     <div class="chart-body"><div id="sG"></div></div>
     <div class="chart-foot"><details class="tv"><summary data-i18n="if2729fd7">Таблица</summary><div class="tv-body" id="sGt"></div></details></div>
@@ -1538,7 +1544,7 @@ footer p { max-width: var(--measure); margin: 0; }
   <figure class="chart">
       <div class="chart-head">
         <p class="chart-title" data-i18n="i4d20092c">Китай: критерии здорового образа жизни</p>
-        <p class="chart-sub" data-i18n="i0d480279">Шесть критериев по отдельности и все сразу. В отличие от России, здесь композит близок к произведению маргиналов.</p>
+        <p class="chart-sub" data-i18n="i0d480279">Доля людей соответствующих критерию, %</p>
       </div>
       <div class="chart-body"><div id="cK"></div></div>
       <div class="chart-foot"><details class="tv"><summary data-i18n="if2729fd7">Таблица</summary><div class="tv-body" id="cKt"></div></details></div>
@@ -1636,7 +1642,7 @@ footer p { max-width: var(--measure); margin: 0; }
   <figure class="chart">
     <div class="chart-head">
       <p class="chart-title" data-i18n="i7281f7f8">Сводно по миру</p>
-      <p class="chart-sub" data-i18n="ib39da77e">Вертикальная шкала логарифмическая: шкала линейная.</p>
+      <p class="chart-sub" data-i18n="ib39da77e">Доля людей согласных с/соответствующих утверждению, %</p>
     </div>
     <div class="chart-body"><div id="c9"></div></div>
     <div class="chart-foot"><details class="tv"><summary data-i18n="if2729fd7">Таблица</summary><div class="tv-body" id="c9t"></div></details></div>
@@ -2182,17 +2188,17 @@ footer p { max-width: var(--measure); margin: 0; }
 
   <div class="cite">
     <p class="foot-h" data-i18n="ie65c6fb1">Как ссылаться</p>
-    <p style="font-size:14.5px;color:var(--ink-2);margin:0 0 4px" data-i18n="i0feb62fc">Версия 1.1.2 · 19.08.2026</p>
+    <p style="font-size:14.5px;color:var(--ink-2);margin:0 0 4px" data-i18n="i0feb62fc">Версия 1.1.3 · 28.08.2026</p>
     <pre id="citeApa" data-i18n="i8db4d641">Елисов М. (2026). Кто хочет жить вечно: агрегированная база данных
 об отношении к продлению жизни, бессмертию и здоровому образу жизни
-(версия 1.1.2) [Набор данных]. Zenodo. CC BY 4.0.
+(версия 1.1.3) [Набор данных]. Zenodo. CC BY 4.0.
 https://doi.org/10.5281/zenodo.22002817</pre>
     <pre id="citeBib">@misc{elisov2026immortality,
   author       = {Elisov, Maksim},
   title        = {Who Wants to Live Forever: an aggregated database of public
                   attitudes to life extension, immortality and healthy lifestyle},
   year         = {2026},
-  version      = {1.1.2},
+  version      = {1.1.3},
   publisher    = {Zenodo},
   doi          = {10.5281/zenodo.22002817},
   howpublished = {\url{https://doi.org/10.5281/zenodo.22002817}},
@@ -2321,7 +2327,7 @@ https://doi.org/10.5281/zenodo.22002817</pre>
         <li>ORCID: <a href="https://orcid.org/0009-0001-3097-2703" rel="noopener me" target="_blank">0009-0001-3097-2703</a></li>
       </ul>
       <p style="margin-top:14px; font-size:13.5px" data-i18n="i4a738dce">
-        <span data-auto="src">185</span> <span data-auto="srcWord">источников</span> · <span data-auto="fin">2404</span> <span data-auto="finWord">показателя</span> · версия <span data-auto="ver">1.1.2</span> от <span data-auto="dateLong">19 августа 2026 года</span>.
+        <span data-auto="src">185</span> <span data-auto="srcWord">источников</span> · <span data-auto="fin">2404</span> <span data-auto="finWord">показателя</span> · версия <span data-auto="ver">1.1.3</span> от <span data-auto="dateLong">28 августа 2026 года</span>.
        
       </p>
     </div>
@@ -2659,14 +2665,14 @@ const EN_HTML = {
   "i0b37133d": "<b>China, the six China Kadoorie Biobank criteria.</b> Under independence the composite would be 0.47 %; the observed figure is 0.7 % — only 1.5 times higher, and 8 % of the upper bound of 8.7 %. Here the criteria behave almost independently, and the low composite really is created by the conjunction.",
   "i0c0ff210": "46 → 88<small> years</small>",
   "i0cc50073": "How to read the registry",
-  "i0d480279": "Six criteria individually and all together. Unlike Russia, here the composite is close to the product of the marginals.",
+  "i0d480279": "Share meeting the criterion, %",
   "i0d9aac51": "<b>Source:</b> ВЦИОМ, Analytical Centre, «Атака клонов» (“Attack of the Clones”). Fieldwork 27.04.2026, published 26.05.2026. N = 1,600, aged 18+, telephone interview, margin of error ≤ 2.5 pp.",
   "i0dd8b420": "2019 → 2021: COVID rolled the figure back to its 2012 level (WHO)",
   "i0dd99dce": "The source column gives the sample size and the year. Values such as “20–24” or “146–194” are ranges taken from the primary source, not point estimates.",
   "i0f24fcb8": "<b>Source:</b> General Social Survey, NORC at the University of Chicago, variable <code>postlife</code>. The question was asked in 29 of 35 possible years, for a total of 45,428 substantive answers.<br> <b>How it was computed.</b> The share choosing “yes” among those giving a substantive answer. The “don’t know” and “no answer” categories were excluded from the file: their share varied markedly from wave to wave, and without this cleaning the years are not comparable. Counting the undecided in as well, the series runs from 69.9 % in 1973 to 71.9 % in 2024 — the same direction.<br> <b>What this shows.</b> Half a century contained secularisation, falling church attendance and the arrival of all of modern biomedicine — and the share believing in an afterlife <b>did not fall but rose</b>, from 76.9 to 82.9 %. Fluctuations between waves reach eight points, so individual adjacent points should not be compared; only the overall level is reliable.<br> <b>Belief has come apart from practice.</b> In 2024, among those attending services weekly <b>92 %</b> believe in an afterlife; among those never attending, <b>74.2 %</b>. A gap of only 18 points: the idea of a posthumous existence holds up even among those with no religious practice at all.<br> <b>Cross-check:</b> for 2018 the GSS gives 81.0 %, while an independent calculation from ISSP microdata for the United States gives 81.3 %. Two different projects, different samples, a discrepancy of three tenths of a point.",
   "i0fd23fd0": "Olshansky et al., 2024. Estimates of the limit of an individual life are a different quantity: 125 and 146–194 years",
   "i0fea9725": "People over 110",
-  "i0feb62fc": "Version <span data-auto=\"ver\">1.1.2</span> · <span data-auto=\"date\">19.08.2026</span>",
+  "i0feb62fc": "Version <span data-auto=\"ver\">1.1.3</span> · <span data-auto=\"date\">28.08.2026</span>",
   "i1157d423": "<b>The database is skewed towards two countries.</b> Russia and the United States account for <span data-auto=\"twoPct\">57,3</span> % of all country-level indicators. This is a property not of the subject but of source availability: Russian surveys can be read directly, American ones are published openly and in detail. Any conclusion of the form “worldwide people think such and such” must be checked against this skew on these data.",
   "i121e5ab0": "What was taken to be the mean biological limit of the species has become the country average.",
   "i127d5eeb": "<b>Sources:</b> ISSP Religion I–IV Cumulation (GESIS ZA8792 v2.0.0, DOI 10.4232/1.14482) and World Values Survey Time Series 1981–2022 (version 5.0). Both shares were computed from microdata: weighted with the standard weight, base restricted to substantive answers.<br> <b>The column is the mean of the two projects.</b> The value of each separately is given in the table and the tooltip.<br> <b>Why they diverge.</b> ISSP offers four gradations — “definitely yes”, “probably yes”, “probably no”, “definitely no” — and the first two are counted as belief. The World Values Survey asks a binary yes or no. An intermediate “probably yes” on the four-point scale falls into “believe”, whereas on a binary scale some such people choose “no”. Where the measurements are up to four years apart, ISSP is higher in 11 cases of 14, by 4.9 points on average. In individual countries the gap reaches nineteen: Indonesia in 2018 — 93.0 % on ISSP and 73.6 % on the World Values Survey.<br> <b>What this means for reading any cross-national figures.</b> If one and the same country in one and the same year gives 93 and 74 per cent depending on the form of the question, then a divergence of five to ten points between two different surveys proves nothing by itself.<br> <b>Caveat:</b> in half the countries the measurements are ten years apart or more — there a genuine change of view is mixed in with the difference of instruments, and the divergence between projects is wider for that reason rather than because of the wording.",
@@ -2767,7 +2773,7 @@ const EN_HTML = {
   "i493513ba": "First engine: children stopped dying",
   "i4992e56b": "Sources are placed by the “Year” field of the dataset. Where a range is given, the last year was taken. Sources earlier than the twenty-first century are not shown.",
   "i499378cf": "It is not only child mortality",
-  "i4a738dce": "<span data-auto=\"src\">185</span> <span data-auto=\"srcWord\">sources</span> · <span data-auto=\"fin\">2404</span> <span data-auto=\"finWord\">indicators</span> · version <span data-auto=\"ver\">1.1.2</span> of <span data-auto=\"dateLong\">19 August 2026</span>.",
+  "i4a738dce": "<span data-auto=\"src\">185</span> <span data-auto=\"srcWord\">sources</span> · <span data-auto=\"fin\">2404</span> <span data-auto=\"finWord\">indicators</span> · version <span data-auto=\"ver\">1.1.3</span> of <span data-auto=\"dateLong\">28 August 2026</span>.",
   "i4cb62995": "The 9–77 % spread within a single country comes from comparing different surveys. Nobody has randomised the wording within one sample — that would give a causal estimate of the effect instead of an observational one.",
   "i4d20092c": "China: healthy lifestyle criteria",
   "i4dd49d7c": "What this grid shows",
@@ -2828,9 +2834,9 @@ const EN_HTML = {
   "i6acaa114": "In other words, the measure is driven <b>not by multiplying five moderate requirements but by a single very demanding one — diet</b>. The salt norm looks equally demanding: mean consumption in Russia is about 11 g a day against a norm of 5 g. The gap between self-report and measurement is real, but it is explained less by people exaggerating than by the fact that almost nobody eats vegetables in the recommended amount.",
   "i6acddf2e": "The American Heart Association’s Life’s Essential 8 index is built the same way — eight components instead of five Russian criteria. In NHANES 2017–2023 (N = 11,939), <b>24.9 %</b> of adults have high cardiovascular health, while <b>fewer than 10 % reach the top score for diet</b>, whereas more than half score maximum on nicotine, sleep and glucose.",
   "i6c05ff6c": "<b>N</b> — the number surveyed: respondents, study participants or households examined. Which of these is stated in the source registry.",
-  "i6cbc6535": "The Japanese Ohsaki cohort: 39,902 people answered in 1990 and were followed for 25 years. On the right — what the answer led to.",
+  "i6cbc6535": "Share answering, %. The right-hand scale is mortality at the end of follow-up.",
   "i6db68a2e": "Coverage matrix: country × topic",
-  "i6dda02a2": "All figures relate to the United States. Share agreeing, %. Colour encodes the threshold asked about. The grey band is a 95 % confidence interval assuming simple random sampling.",
+  "i6dda02a2": "Share agreeing, %. Surveys in the United States.",
   "i6e4a9001": "Yasumoto et al. 2026, N = 451, ages 77–81, Japan",
   "i6f16b612": "Wish to live forever, % — by country",
   "i6f5e998f": "73.3 <small>years</small>",
@@ -2845,7 +2851,7 @@ const EN_HTML = {
   "i736ef88a": "Thesis 4",
   "i73aef0a9": "<b>There is only one cross-national measurement.</b> Oxford 2024 publishes country values for just the five extreme countries of 25. Because of this, two testable hypotheses — on the link between belief in an afterlife and the wish for immortality, and between the health gap and that wish — could not be computed: the overlap of samples came to 5 and 2 countries.",
   "i7433a73b": "<b>Would be refuted by:</b> a country’s share saying “I want to live forever” being linked more closely to measured healthy-lifestyle behaviour than to belief in an afterlife. If the wish to live forever is a preference, it should predict real investment in one’s own health. If it is a value position, it should travel with other beliefs about continued existence.",
-  "i74edd372": "The hollow point is the first measurement, the filled one the last. The arrow shows the direction.",
+  "i74edd372": "Share believing, %. The arrow shows the direction of change.",
   "i7522672c": "There is no universal motive for refusal",
   "i7576636e": "The fears are not groundless: healthy life expectancy is on average growing more slowly than life expectancy itself.",
   "i765992b7": "2013 = 2017. Unchanged (Левада<span class=\"fa-mark\">*</span>)",
@@ -2858,7 +2864,7 @@ const EN_HTML = {
   "i7910ef30": "The long international programmes contain no direct question about life extension. They do contain a question about <b>belief in life after death</b>: in the ISSP Religion modules it was asked identically in 1991, 1998, 2008 and 2018, in 109 countries in the latest wave, and <b>for 12 countries the series is continuous across all 27 years</b>. In the United States the same question has run in the GSS since 1973.",
   "i793cd410": "— <b>Wording moves the answer more than nationality does.</b> Within a single year and a single country, the share of Americans wishing to live to a hundred is <b>30 %</b> when they name an age in an open field and <b>49 %</b> when they answer yes or no to a direct question. The health condition works separately: the share wishing to live 120 years or more rises from <b>57 %</b> to <b>74 %</b> when “in full health” is added to the question. Sampling error runs from one and a half to two and a half points — several times smaller than the effects themselves, which are 19 and 17 points.",
   "i798330bb": "<b>N</b> — the number surveyed: respondents, cohort participants or households examined. For official statistics a description of coverage stands in place of N.",
-  "i7a5a3418": "<b>Sources:</b> YouGov 2018 (N not published) · CBS News/YouGov 2021 (N = 1,650) · Barnett &amp; Helphrey 2021 (N = 911) · Pew Research Center 2013 (N = 2,012) and 2025 (N = 8,750) · Corebridge/Greenwald 2025 (N = 4,400) · Stanford Center on Longevity, TIME and Hart Research 2016 (N = 2,330).<br> <b>The health proviso.</b> In the Stanford, TIME and Hart survey the question about a hundred years was asked with the proviso that health be preserved. The verbatim wording and the topline of that survey have not been published; the proviso is known from the organisers’ descriptions.<br> <b>Two different thresholds.</b> The blue measurements ask about living forever, the green ones about a hundred years. Within the “forever” threshold the spread runs from 19 to 33 %, within the “to 100” threshold from 9 to 77 %. Almost the whole range is therefore created inside one family of wordings, not by moving between them. The lower edge of the “hundred” family is the Pew measurement of 2013, and it answers a stricter question: the share naming an age <b>above</b> a hundred, whereas the others include the hundred itself. The neighbouring chart shows that 9 % is consistent with the 7–30 % of Pew 2025.<br> <b>A clean comparison of formats:</b> Pew and Corebridge, 2025, one country, one threshold — 30 % against 49 %. With Pew respondents name the age themselves in an open field; with Corebridge they answer yes or no to a direct question about a hundred years. A 19-point difference arises with no difference in year, sample or construct.",
+  "i7a5a3418": "<b>Sources:</b> YouGov 2018 (N not published) · CBS News/YouGov 2021 (N = 1,650) · Barnett &amp; Helphrey 2021 (N = 911) · Pew Research Center 2013 (N = 2,012) and 2025 (N = 8,750) · Corebridge/Greenwald 2025 (N = 4,400) · Stanford Center on Longevity, TIME and Hart Research 2016 (N = 2,330).<br> <b>How to read the chart.</b> Colour encodes the threshold that was asked about. The grey band is a 95 % confidence interval assuming simple random sampling.<br> <b>The health proviso.</b> In the Stanford, TIME and Hart survey the question about a hundred years was asked with the proviso that health be preserved. The verbatim wording and the topline of that survey have not been published; the proviso is known from the organisers’ descriptions.<br> <b>Two different thresholds.</b> The blue measurements ask about living forever, the green ones about a hundred years. Within the “forever” threshold the spread runs from 19 to 33 %, within the “to 100” threshold from 9 to 77 %. Almost the whole range is therefore created inside one family of wordings, not by moving between them. The lower edge of the “hundred” family is the Pew measurement of 2013, and it answers a stricter question: the share naming an age <b>above</b> a hundred, whereas the others include the hundred itself. The neighbouring chart shows that 9 % is consistent with the 7–30 % of Pew 2025.<br> <b>A clean comparison of formats:</b> Pew and Corebridge, 2025, one country, one threshold — 30 % against 49 %. With Pew respondents name the age themselves in an open field; with Corebridge they answer yes or no to a direct question about a hundred years. A 19-point difference arises with no difference in year, sample or construct.",
   "i7aec04e7": "The more an answer costs, the fewer agree. This is shown three times below: first within a single questionnaire, then within a single country, and only at the end pooled across the world.",
   "i7d2e8749": "In the pooled ladder the steps come from different countries: Japan, the United States, 25 countries, Russia, Germany, the Netherlands, Russia again. So part of the fall between steps may be not an effect of the step but an <b>effect of country composition</b> — the Japanese answer differently from the Germans. The Russian ladder removes this objection: all seven points are measured on one population, and the fall remains the same in order of magnitude.",
   "i7e055c35": "<b>Source:</b> Luke A. et al., BMC Public Health 2011, 11:387. NHANES accelerometry 2003–2006, N = 3,370, ages 20–65. The device threshold is 2,020 counts/min for moderate and 5,999 for vigorous activity, credited in continuous 10-minute bouts.<br> <b>What is being compared with what.</b> The top two rows are one and the same criterion: vigorous activity for more than 20 minutes at least three times a week. The 23 % figure is the estimate from survey data built into the Healthy People 2010 programme; under 1 % is the share the device finds for that same criterion in the paper’s sample. The bottom row is a different, milder criterion — 150 minutes of moderate activity a week — met by 0.3 % on the device, that is 10 people out of 3,370.<br> <b>An important caveat.</b> The self-report and the device were obtained <b>not on the same people</b>: the authors measured accelerometry only, and the survey share is taken from a national programme. This is a comparison of two instruments, not a check of one person by two methods. A within-NHANES comparison is mentioned in the paper — 42 % by self-report in another subsample — but the authors explicitly call the accuracy of that self-report low, so it is not used here.<br> <b>A further caveat:</b> the requirement of continuous 10-minute bouts is stricter than in later United States guidelines, so 0.3 % is not directly comparable with later estimates using a different threshold.",
@@ -2880,14 +2886,14 @@ const EN_HTML = {
   "i85890d8e": "The aim is to open the subject up for researchers, journalists and anyone interested in the future of human longevity. To develop and popularise the idea of life extension, it helps to understand how people relate to it now — and why.",
   "i85e75c79": "Without that guarantee — <b>57 %</b>.",
   "i87b05d9d": "— <b>The gap between words and behaviour is large.</b> In Russia <b>88 %</b> say they follow a healthy lifestyle, while <b>9.7 %</b> meet all five Росстат criteria. Either a healthy lifestyle as Russians understand it does not match the scientific criteria, or people overrate themselves. At the same time, those who meet several criteria are very likely to meet the rest. In China it is the opposite: meeting one criterion says little about meeting the others.",
-  "i87cb3cfa": "Distribution of answers to an open question, two Pew Research Center measurements in the United States. The bands differ by exactly one year, so categories are compared pairwise.",
+  "i87cb3cfa": "An open question, two measurements in the United States. The bandings differ by a one-year shift, so the categories are matched in pairs.",
   "i88503a8c": "Gap between life expectancy and healthy life expectancy, years, 2019.",
   "i88ae6bd2": "2 of 4",
   "i899ccda3": "3.8 times the pharmaceutical industry (1.8 trn). Society pays for behavioural life extension, not for pills. Even though it hopes for them",
   "i8b19df3d": "CSV with a comma separator and a decimal point, UTF-8 with BOM — opens in Excel, in <code>pandas.read_csv()</code> and in <code>read.csv()</code>. The data for an individual chart is behind the “CSV” button next to its table.",
   "i8d8a5837": "Western literature explains refusal by fear of one’s own frailty — and therefore measures “what if health were guaranteed?”. In collectivist cultures a different mechanism operates: the fear of burdening those close to you. An instrument tuned to the first motive measures the wrong thing in the second case and errs systematically on non-Western samples.",
   "i8d9c7183": "Where the data exist — and where they do not",
-  "i8db4d641": "Elisov, M. (2026). Who Wants to Live Forever: an aggregated database of public\nattitudes to life extension, immortality and healthy lifestyle\n(version <span data-auto=\"ver\">1.1.2</span>) [Data set]. Zenodo. CC BY 4.0.\nhttps://doi.org/10.5281/zenodo.22002817",
+  "i8db4d641": "Elisov, M. (2026). Who Wants to Live Forever: an aggregated database of public\nattitudes to life extension, immortality and healthy lifestyle\n(version <span data-auto=\"ver\">1.1.3</span>) [Data set]. Zenodo. CC BY 4.0.\nhttps://doi.org/10.5281/zenodo.22002817",
   "i8eb6b1c9": "Project repository on GitHub",
   "i8f4de517": "mean life expectancy has more than doubled",
   "i8f6f4d9b": "the ceiling declared in 1980",
@@ -2926,7 +2932,7 @@ const EN_HTML = {
   "ia47b2878": "Show these countries",
   "ia56a35ca": "The century that has already happened",
   "ia86f0130": "<b>Source:</b> Donner Y. et al., 2016; replication, N = 1,500. In the first wave (N = 1,000), 79.7 % chose 120+ given perfect health.",
-  "ia9860bf1": "Willingness to use life-extension means. All five come from one sample and one survey, so they are directly comparable.",
+  "ia9860bf1": "Willingness to use life-extension means.",
   "ia9b553a6": "Medtronic / Morning Consult 2024, N = 2,200, United States",
   "ia9e999ad": "<b>Robustness.</b> In both countries one of the shares is unpublished and was calculated for this review: salt in Russia, physical activity in China. Under any plausible value the conclusion holds. The Russian ratio stays in the range of 6 to 32 times, the Chinese one 1.2 to 1.9.",
   "ia9feaf51": "of Vietnamese explain their refusal to treat longevity as a priority by their pursuit of a <b>meaningful</b> life, and another 44 % by its quality. For them longevity is not a goal but a by-product of a life well lived.",
@@ -2941,7 +2947,7 @@ const EN_HTML = {
   "ib1a74e9a": "Wording matters more than country",
   "ib217a8d3": "Half the declared limits had already been passed before publication",
   "ib29d39ac": "People expect to live",
-  "ib39da77e": "The vertical scale is logarithmic.",
+  "ib39da77e": "Share agreeing with, or meeting, the statement, %",
   "ib564bbf3": "Reasons given by those who would like to live beyond the natural span. United States, 2024.",
   "ib67e7c2f": "Desired age · Pew, 2025",
   "ib6bbb472": "<b>Whose is what.</b> The numbers themselves belong to their primary sources — polling organisations, statistical agencies, article authors. The work of this review is to bring them together, check them against the originals and show where they are comparable and where they are not.",
@@ -7074,6 +7080,11 @@ autoNumbers();
 // блок просто рисуется без неё, и выгрузка всё равно работает.
 const DL_CREDIT = "Елисов М. В. · Инфографика «Кто хочет жить вечно»";
 const DL_LICENCE = "Открытый датасет · CC BY 4.0 · версия";
+// Постоянный DOI: ведёт на последнюю версию набора. Подставляется
+// в подвал выгружаемой картинки сразу после номера версии, без пояснений —
+// картинка расходится отдельно от страницы, и по ней должно быть видно,
+// куда идти за данными.
+const DL_DOI = "doi.org/10.5281/zenodo.22002817";
 
 // Сообщение о неудаче выгрузки: alert останавливает страницу и на телефоне
 // выглядит как ошибка сайта. Показываем ненавязчивую плашку на четыре секунды.
@@ -7132,6 +7143,39 @@ function svgToBlobURL(svg, w, h, k) {
   return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(xml);
 }
 
+/* Подзаголовок в выгруженной картинке.
+
+   Прежде он резался по восемь символов, пока не влезет в ОДНУ строку,
+   и обрывался на полуслове: у длинных подписей в файл попадала половина
+   пояснения. Теперь текст переносится по словам, до трёх строк.
+
+   Если не помещается и так — обрезаем по последней точке внутри того,
+   что уложилось: обрывок на полуслове хуже, чем более короткая, но целая
+   фраза. Если точки в пределах помещающегося нет, подзаголовок не
+   рисуется вовсе — лучше без него, чем с огрызком. */
+function fitSubtitle(g, text, maxW, maxLines) {
+  const wrap = s => {
+    const out = [];
+    let line = "";
+    for (const w of s.split(/\s+/)) {
+      if (!w) continue;
+      const t = line ? line + " " + w : w;
+      if (g.measureText(t).width <= maxW) { line = t; continue; }
+      if (line) out.push(line);
+      line = w;
+    }
+    if (line) out.push(line);
+    return out;
+  };
+  let lines = wrap(text);
+  if (lines.length <= maxLines) return lines;
+  const fitted = lines.slice(0, maxLines).join(" ").length;
+  const cut = text.lastIndexOf(".", fitted);
+  if (cut < 0) return [];
+  lines = wrap(text.slice(0, cut + 1));
+  return lines.length <= maxLines ? lines : [];
+}
+
 function downloadChart(fig) {
   const svg = fig.querySelector("svg");
   if (!svg) return;
@@ -7161,13 +7205,22 @@ function downloadChart(fig) {
 
   const vb = (svg.getAttribute("viewBox") || "0 0 800 460").split(/\s+/).map(Number);
   const cw = vb[2], chH = vb[3];
-  const scale = 3, padX = 40, headH = sub ? 104 : 78,
+  const scale = 3, padX = 40;
+  // Высота шапки зависит от того, во сколько строк лёг подзаголовок,
+  // а измерить это можно только контекстом холста — поэтому холст
+  // создаётся раньше расчёта размеров. Установка width/height ниже
+  // сбрасывает состояние контекста, шрифт задаётся заново.
+  const cv = document.createElement("canvas");
+  const g = cv.getContext("2d");
+  const csPre = getComputedStyle(document.body);
+  g.font = "400 13px " + csPre.fontFamily;
+  const subLines = sub ? fitSubtitle(g, sub, cw, 3) : [];
+
+  const headH = subLines.length ? 86 + subLines.length * 18 : 78,
         legH = legend.length ? 34 : 0, footH = 66;
   const W = cw + padX * 2, H = headH + legH + chH + footH;
 
-  const cv = document.createElement("canvas");
   cv.width = W * scale; cv.height = H * scale;
-  const g = cv.getContext("2d");
   g.imageSmoothingEnabled = true;
   g.imageSmoothingQuality = "high";
   g.scale(scale, scale);
@@ -7181,12 +7234,9 @@ function downloadChart(fig) {
   g.fillStyle = ink;
   g.font = "600 19px " + cs.fontFamily;
   g.fillText(title, padX, 40);
-  if (sub) {
+  if (subLines.length) {
     g.fillStyle = ink3; g.font = "400 13px " + cs.fontFamily;
-    // подзаголовок обрезаем по ширине, чтобы не наезжал на край
-    let s = sub;
-    while (g.measureText(s).width > cw && s.length > 12) s = s.slice(0, -8);
-    g.fillText(s + (s === sub ? "" : "…"), padX, 62);
+    subLines.forEach((line, i) => g.fillText(line, padX, 62 + i * 18));
   }
   let ly = headH - 12;
   if (legend.length) {
@@ -7229,7 +7279,7 @@ function downloadChart(fig) {
     g.fillStyle = ink; g.font = "500 13px " + cs.fontFamily;
     g.fillText(L(DL_CREDIT), tx, fy + 2);
     g.fillStyle = ink3; g.font = "400 11.5px " + cs.fontFamily;
-    g.fillText(L(DL_LICENCE) + " " + SITE_VERSION, tx, fy + 19);
+    g.fillText(L(DL_LICENCE) + " " + SITE_VERSION + " · " + DL_DOI, tx, fy + 19);
 
     try {
       cv.toBlob(function (blob) {
